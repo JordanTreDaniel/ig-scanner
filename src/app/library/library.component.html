@@ -1,0 +1,11 @@
+<div id="container">
+  <ul>
+    <li *ngFor="let img of images" (click)="onClick(img)">
+      <img [src]="img.url" [alt]="img.alt">
+      <p>{{img.name}}</p>
+    </li>
+  </ul>
+  <app-img-detail [img]="selectedImg" *ngIf="selectedImg">
+
+  </app-img-detail>
+</div>
