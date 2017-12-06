@@ -1,6 +1,6 @@
 export class ProductImage {
     url: string;
-    name: string;
+    id: number;
     alt: string;
     constructor() {
 

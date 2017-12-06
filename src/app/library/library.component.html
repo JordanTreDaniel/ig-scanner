@@ -1,11 +1,8 @@
 <div id="container">
   <ul>
-    <li *ngFor="let img of images" (click)="onClick(img)">
+    <li *ngFor="let img of images" routerLink="/img/{{img.id}}">
       <img [src]="img.url" [alt]="img.alt">
-      <p>{{img.name}}</p>
+      <p>{{img.id}}</p>
     </li>
   </ul>
-  <app-img-detail [img]="selectedImg" *ngIf="selectedImg">
-
-  </app-img-detail>
 </div>

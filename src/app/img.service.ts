@@ -10,6 +10,10 @@ export class ImgService {
     this.msgService.add('Fetched the Images');  
     return of(IMAGES);
   }
+  getImg = (id):Observable<ProductImage> => {
+    this.msgService.add(`HeroService: Fetched the image with id:${id}`);
+    return of(IMAGES[id - 1]);
+  }
   constructor(
     private msgService: MsgService
   ) { }

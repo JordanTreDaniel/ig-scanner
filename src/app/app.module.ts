@@ -11,6 +11,7 @@ import { ImgService } from './img.service';
 import { MsgService } from './msg.service';
 import { MsgsComponent } from './msgs/msgs.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { AppRoutingModule } from './/app-routing.module';
     LibraryComponent,
     ImgDetailComponent,
     MsgsComponent,
+    DashboardComponent,
 
   ],
   imports: [

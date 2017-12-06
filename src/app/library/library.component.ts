@@ -11,16 +11,13 @@ import { ImgService } from '../img.service';
 
 export class LibraryComponent implements OnInit {
   images: ProductImage[];
-  selectedImg:ProductImage;
   getImages = ():void => {
     this.imgService.getImages()
       .subscribe((imgs) => {
         this.images = imgs;
       });
   }
-  onClick = (n:ProductImage) => {
-    this.selectedImg = n;
-  }
+  
   constructor(
     private imgService: ImgService,
   ) { }

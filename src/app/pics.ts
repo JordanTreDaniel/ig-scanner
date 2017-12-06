@@ -3,17 +3,17 @@ import { ProductImage } from './product-image';
 export const IMAGES: ProductImage[] = [
     {
         url: "http://www.planwallpaper.com/static/images/desktop-year-of-the-tiger-images-wallpaper.jpg",
-        name: "1",
+        id: 1,
         alt: "White Tiger with Blue and Green Globe"
     },
     {
         url: "http://www.planwallpaper.com/static/images/desktop-year-of-the-tiger-images-wallpaper.jpg",
-        name: "2",
+        id: 2,
         alt: "White Tiger with Blue and Green Globe"
     },
     {
         url: "http://www.planwallpaper.com/static/images/desktop-year-of-the-tiger-images-wallpaper.jpg",
-        name: "3",
+        id: 3,
         alt: "White Tiger with Blue and Green Globe"
     }
 ]
