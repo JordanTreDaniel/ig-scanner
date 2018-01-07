@@ -4,18 +4,25 @@ import { IMAGES } from './pics';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { MsgService } from './msg.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 @Injectable()
 export class ImgService {
   getImages = ():Observable<ProductImage[]> => {
     this.msgService.add('Fetched the Images');  
-    return of(IMAGES);
+    return this.http.get<ProductImage[]>(this.imgsUrl);
   }
   getImg = (id):Observable<ProductImage> => {
     this.msgService.add(`HeroService: Fetched the image with id:${id}`);
     return of(IMAGES[id - 1]);
   }
+  private log(message: string) {
+    this.msgService.add('HeroService: ' + message);
+  }
+  private imgsUrl = 'api/images';
   constructor(
-    private msgService: MsgService
+    private msgService: MsgService,
+    private http: HttpClient
   ) { }
 
 }
