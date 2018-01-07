@@ -12,7 +12,7 @@ import { ImgService }  from '../img.service';
 export class ImgDetailComponent implements OnInit {
   img: ProductImage;
   getHero = ():void => {
-    const id = this.route.snapshot.paramMap.get('id');
+    const id = Number(this.route.snapshot.paramMap.get('id'));
     this.imgService.getImg(id)
       .subscribe((img) => {
         this.img = img;

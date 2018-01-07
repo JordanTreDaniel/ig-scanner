@@ -1,6 +1,6 @@
 <p>The img-detail component</p>
 <button (click)="goBack()">Back</button>
-<div id="detail-view">
+<div id="detail-view" *ngIf="img">
     <h2>Image number: {{img.id}}</h2>
     <img class="detail" [src]="img.url" alt="img.alt">
 </div>  
