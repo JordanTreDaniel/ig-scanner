@@ -3,4 +3,13 @@
 <div id="detail-view" *ngIf="img">
     <h2>Image number: {{img.id}}</h2>
     <img class="detail" [src]="img.url" alt="img.alt">
-</div>  
+    <form (submit)="updateImg()">
+        <label for="url">Change Image Url</label>
+        <input name="url"type="text" [(ngModel)]="img.url">
+        <label for="alt">Change Image Alt</label>
+        <input name="alt"type="text" [(ngModel)]="img.alt">
+        <input type="submit">
+    </form>
+    
+
+</div>

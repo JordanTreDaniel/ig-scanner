@@ -6,13 +6,15 @@ import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 import { MsgService } from './msg.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json'})
+};
 @Injectable()
 export class ImgService {
   getImages = ():Observable<ProductImage[]> => {
     this.log("Fetching all heroes"); 
     return this.http.get<ProductImage[]>(this.imgsUrl).pipe(
-      tap(heroes => console.dir(heroes)),
+      tap(imgs => console.dir(imgs)),
       catchError(this.handleError('getHeroes', []))
     );
   }
@@ -20,8 +22,15 @@ export class ImgService {
     this.log(`Fetching hero with id: ${id}`);
     const url = `${this.imgsUrl}/${id}`;
     return this.http.get<ProductImage>(url).pipe(
-      tap(hero => console.log("Got hero by id", hero)),
+      tap(img => console.log("Got hero by id", img)),
       catchError(this.handleError<ProductImage>(`getImg id=${id}`))
+    );
+  }
+  
+  updateImg = (img: ProductImage):Observable<any> => {
+    return this.http.put(this.imgsUrl, img, httpOptions).pipe(
+      tap(() => {this.log(`Updated img #${img.id}`)}),
+      catchError(this.handleError<any>(`Update Img`))
     );
   }
   private log(message: string) {

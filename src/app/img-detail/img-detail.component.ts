@@ -21,6 +21,10 @@ export class ImgDetailComponent implements OnInit {
   goBack = ():void => {
     this.location.back();
   }
+  private updateImg():void {
+    this.imgService.updateImg(this.img)
+      .subscribe(() => this.goBack());
+  }
   constructor(
     public imgService: ImgService,
     public location: Location,
